@@ -12,6 +12,8 @@ Bu repo **hem bir Claude Code plugin'i hem de kendi marketplace'i**dir — tek y
 | **analytics-panel** | Plan-gated, timezone-uyumlu tıklama/olay analitik paneli (SQLite). Tarih aralığı filtreleri, plan bazlı özellik kilitleme, geo/cihaz kırılımları, CSV export, paylaşılabilir public rapor. |
 | **panel-timezone-date-ranges** | Kullanıcı seçmeli panel saat dilimi (Yerel/İstanbul saat + toggle) → timezone-tutarlı tarih aralığı filtreleri ve CSV export. Tek UTC offset tüm tarih sorgularına akar. |
 | **usdt-trc20-payments** | Sağlayıcısız, self-custody USDT (TRC-20) kripto ödeme + kredi yükleme. TronGrid REST doğrulama, ekstra npm bağımlılığı yok, private key sunucuda değil. |
+| **credit-wallet-billing** | Uygulama içi kredi bakiyesi (cüzdan) ile faturalandırma: kullanıcı kredi yükler (gerçek on-chain veya demo), sonra bu bakiyeden plan satın alır. Sunucu-taraflı bakiye kontrolü + atomik plan+kredi güncellemesi (SQLite). |
+| **onchain-transfer-tracking** | Gelen on-chain kripto transferlerini blok gezgini REST API'siyle (TronGrid/Etherscan tarzı) güvenilir takip: self-scheduling poller, block-timestamp watermark + overlap re-scan, confirmed-only finality, txid tabanlı idempotency. usdt-trc20-payments'ın altındaki izleme motoru. |
 
 ## Kurulum
 
@@ -42,7 +44,9 @@ miracle-skills/
 │   └── marketplace.json    # marketplace manifesti (repo kendini yayınlar)
 ├── skills/
 │   ├── analytics-panel/SKILL.md
+│   ├── credit-wallet-billing/SKILL.md
 │   ├── link-redirect-tracking/SKILL.md
+│   ├── onchain-transfer-tracking/SKILL.md
 │   ├── panel-timezone-date-ranges/SKILL.md
 │   └── usdt-trc20-payments/SKILL.md
 └── README.md
