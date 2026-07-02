@@ -30,7 +30,10 @@ service_amount_micro INT, fee_amount_micro INT, expected_amount_micro INT,   -- 
 received_amount_micro INT, txid TEXT UNIQUE, confirmations INT,
 status TEXT ('pending'|'paid'|'expired'), expires_at, created_at, paid_at
 ```
-Credits balance lives on `users.credits` (REAL). `txid UNIQUE` is the idempotency backbone.
+Credits balance lives on `users.credits` (REAL). `txid UNIQUE` is the idempotency backbone. This skill
+is the **top-up** side (get money in → credits); **spending** those credits to buy subscription plans
+(server-enforced balance check + atomic plan update, real-vs-demo page naming) is the companion
+**credit-wallet-billing** skill.
 The two amount columns are **deliberately distinct**: `service_amount_micro` = the credit granted
 (the round amount the user typed); `expected_amount_micro` = the amount to send / match the chain on
 (= `service` + salt, or `service` + fee if you charge one). In the no-fee salt model `fee_amount_micro`
@@ -125,6 +128,9 @@ Real tx fields: `token_info.address` (contract), `to`, `value` (string micro), `
    credit impossible even under retries/webhook duplicates.
 
 ## Poller + lifecycle
+The generic "watch an address, process each confirmed transfer exactly once" engine — self-scheduling
+poller, block-timestamp watermark, overlap re-scan, txid idempotency, finality — is its own skill:
+**onchain-transfer-tracking**. Summary here:
 - `startPoller()` from `server.js`: `setTimeout`-chained tick (not `setInterval`, so errors don't
   pile up), every ~30s: `expireStale()` then `pollTron()`. Advance `min_timestamp` from the max
   `block_timestamp` seen so you don't rescan history (idempotency covers the overlap window).
