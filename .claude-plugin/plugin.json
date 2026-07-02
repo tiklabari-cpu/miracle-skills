@@ -1,0 +1,10 @@
+{
+  "name": "miracle-skills",
+  "description": "Reusable engineering skills from the Tıklatbari / BeyLink projects: link-redirect + click tracking + BTAG attribution, plan-gated timezone-aware analytics panel, panel timezone + date ranges + CSV export, and self-custody USDT (TRC-20) payments.",
+  "version": "1.0.0",
+  "author": { "name": "tiklabari-cpu" },
+  "homepage": "https://github.com/tiklabari-cpu/miracle-skills",
+  "repository": "https://github.com/tiklabari-cpu/miracle-skills",
+  "license": "MIT",
+  "keywords": ["skills","analytics","link-shortener","btag","affiliate","timezone","usdt","trc20","crypto-payments","sqlite","express","react"]
+}
