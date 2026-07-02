@@ -1,0 +1,11 @@
+{
+  "name": "miracle-skills",
+  "owner": { "name": "tiklabari-cpu", "url": "https://github.com/tiklabari-cpu" },
+  "plugins": [
+    {
+      "name": "miracle-skills",
+      "source": "./",
+      "description": "Reusable engineering skills: link-redirect + click tracking + BTAG, plan-gated timezone-aware analytics panel, panel timezone + date ranges + CSV export, and self-custody USDT (TRC-20) payments."
+    }
+  ]
+}
