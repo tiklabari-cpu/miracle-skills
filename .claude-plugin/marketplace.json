@@ -1,6 +1,9 @@
 {
   "name": "miracle-skills",
-  "owner": { "name": "tiklabari-cpu", "url": "https://github.com/tiklabari-cpu" },
+  "owner": {
+    "name": "tiklabari-cpu",
+    "url": "https://github.com/tiklabari-cpu"
+  },
   "plugins": [
     {
       "name": "miracle-skills",
